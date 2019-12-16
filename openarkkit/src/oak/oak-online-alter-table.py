@@ -51,7 +51,7 @@ def parse_options():
 
 def verbose(message):
     if options.verbose:
-        print "-- %s" % message
+        print "%s -- %s" % (time.ctime(), message)
 
 def print_error(message):
     sys.stderr.write("-- ERROR: %s\n" % message)
@@ -913,6 +913,7 @@ def exit_with_error(error_message):
 
 try:
     try:
+        start_of_oak = time.time()
         conn = None
         (options, args) = parse_options()
 
